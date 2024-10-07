@@ -1,0 +1,94 @@
+/* 重置所有標籤的樣式(reset) */
+* {
+    margin: 0;
+    padding: 0;
+    /* 不累加內距padding與邊框border */
+    box-sizing: border-box;
+}
+
+/* 重置字體 */
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 100%;
+    /* background-color: rgb(175, 207, 191); */
+}
+
+/* 重置標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* 重置列表 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    /* height: auto; */
+}
+
+/* 重置相片 */
+picture {
+    display: block;
+}
+
+/* 重置連接 */
+a {
+    /* 將預設inline改成block */
+    display: block;
+    text-decoration: none;
+    color: var(--deep);
+}
+
+/* 重置按鈕 */
+button {
+    border: none;
+    background-color: transparent;
+}
+
+/* 重置select */
+select {
+    outline: none;
+    font: inherit;
+}
+
+option {
+    font: inherit;
+}
+
+label {
+    display: block;
+}
+
+/* 按鈕手 */
+button {
+    cursor: pointer;
+}
+
+input {
+    /* 用來校正placeholder */
+    position: relative;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    /* 垂直置中 */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
