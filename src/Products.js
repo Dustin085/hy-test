@@ -4,9 +4,10 @@ import ProductCard from "./components/ProductCard";
 function Products() {
     const [productData, setProductData] = useState([]);
     useEffect(() => {
+        // demo用假資料
         let demoProductData = [
             {
-                id: "#TG-SC504",
+                id: "#TG-SC504-1",
                 name: "向日葵II<br />刺し子 ひまわり２",
                 category: "生地",
                 size: "32x37cm",
@@ -14,7 +15,7 @@ function Products() {
                 ntdPrice: 250
             },
             {
-                id: "#TG-SC504",
+                id: "#TG-SC504-2",
                 name: "向日葵II<br />刺し子 ひまわり２",
                 category: "生地",
                 size: "32x37cm",
@@ -22,7 +23,7 @@ function Products() {
                 ntdPrice: 250
             },
             {
-                id: "#TG-SC504",
+                id: "#TG-SC504-3",
                 name: "向日葵II<br />刺し子 ひまわり２",
                 category: "生地",
                 size: "32x37cm",
@@ -30,7 +31,7 @@ function Products() {
                 ntdPrice: 250
             },
             {
-                id: "#TG-SC504",
+                id: "#TG-SC504-4",
                 name: "向日葵II<br />刺し子 ひまわり２",
                 category: "生地",
                 size: "32x37cm",
@@ -38,7 +39,7 @@ function Products() {
                 ntdPrice: 250
             },
             {
-                id: "#TG-SC504",
+                id: "#TG-SC504-5",
                 name: "向日葵II<br />刺し子 ひまわり２",
                 category: "生地",
                 size: "32x37cm",
@@ -46,7 +47,7 @@ function Products() {
                 ntdPrice: 250
             },
             {
-                id: "#TG-SC504",
+                id: "#TG-SC504-6",
                 name: "向日葵II<br />刺し子 ひまわり２",
                 category: "生地",
                 size: "32x37cm",

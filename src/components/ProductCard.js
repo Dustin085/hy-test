@@ -14,6 +14,7 @@ function ProductCard({ isFoldProp = true, isInCartProp = false, setCartList = nu
 
     const [isFold, setIsFold] = useState(isFoldProp);
     const [innerMenuHeight, setInnerMenuHeight] = useState(isFoldProp ? 0 : "auto");
+    // 動畫折疊套件
     useEffect(() => {
         if (isFold) {
             setInnerMenuHeight(0);
@@ -22,12 +23,14 @@ function ProductCard({ isFoldProp = true, isInCartProp = false, setCartList = nu
         }
     }, [isFold]);
 
+    // 摺疊開關，放在整個card-body上
     const toggleFoldHandler = () => {
         setIsFold((prevState) => {
             return !prevState;
         });
     };
 
+    // 給加減按鈕使用
     const [amount, setAmount] = useState(0);
     const amountChangeHandler = (diff) => {
         setAmount((prevState) => {
@@ -39,9 +42,10 @@ function ProductCard({ isFoldProp = true, isInCartProp = false, setCartList = nu
         });
     };
 
+    // 是否在購物車內的state
     const [isInCart, setIsInCart] = useState(isInCartProp);
-
     const amountInCart = useRef(0);
+    // 改變來自父層的購物車清單
     const changeCartListHandler = () => {
         amountInCart.current = amount;
         if (setCartList && amount > 0) {
@@ -57,6 +61,30 @@ function ProductCard({ isFoldProp = true, isInCartProp = false, setCartList = nu
             setCartList([]);
             setIsInCart(false);
         }
+
+        // TODO 把物件塞入購物車清單或是修改其中的物件
+        // function setOrEditCartList() {
+        //     setCartList((prevState) => {
+        //         let isAlreadyInList = false;
+        //         prevState.forEach((cartItem, index) => {
+        //             if (cartItem.id == id) {
+        //                 isAlreadyInList = true;
+        //             }
+        //         });
+
+        //         if (isAlreadyInList) {
+        //             console.log("already in");
+        //         } else {
+        //             let cartItem = {
+        //                 id: id,
+        //                 amount: amount,
+        //                 jpyPrice: 400,
+        //                 ntdPrice: 250
+        //             };
+        //             return prevState.push(cartItem);
+        //         }
+        //     })
+        // }
     };
 
     return (
