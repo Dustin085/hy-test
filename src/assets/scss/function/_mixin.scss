@@ -1,3 +1,8 @@
 @mixin shadow01 {
     box-shadow: 0px 0px 4.1px 0px #38383866;
 }
+
+// 背景置中cover和不重複
+@mixin bgCCN($url: "") {
+    background: url($url) center/cover no-repeat;
+}

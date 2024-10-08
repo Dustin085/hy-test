@@ -1,3 +1,5 @@
+import ProductCard from "./components/ProductCard";
+
 function Products() {
     return (
         <div className="products-wrap">
@@ -17,28 +19,22 @@ function Products() {
             </div>
             <ul className="product-list">
                 <li>
-                    <div className="product-card">
-                        <picture className="pic blank-pic">
-                            {/* <img src="" alt="" /> */}
-                        </picture>
-                        <div className="content">
-                            <div className="start-box">
-                                <div className="name-box">
-                                    <p className="product-id">#TG-SC504</p>
-                                    <p className="product-name">向日葵II<br />刺し子 ひまわり２</p>
-                                </div>
-                                <div className="tag">生地</div>
-                            </div>
-                            <div className="end-box">
-                                <p className="product-size">32x37cm</p>
-                                <p className="product-price">
-                                    <span className="jpy-price">JPY 400</span>
-                                    <span> / </span>
-                                    <span className="ntd-price">NTD 250</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <ProductCard />
+                </li>
+                <li>
+                    <ProductCard />
+                </li>
+                <li>
+                    <ProductCard />
+                </li>
+                <li>
+                    <ProductCard />
+                </li>
+                <li>
+                    <ProductCard />
+                </li>
+                <li>
+                    <ProductCard />
                 </li>
             </ul>
             <div className="shopping-cart-borad">
