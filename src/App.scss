@@ -24,6 +24,7 @@
       font-weight: 300;
       line-height: 18.15px;
       color: map-get($color, gray3);
+      transition: .15s ease-out;
 
       &.active {
         font-weight: 600;
@@ -41,7 +42,7 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  background: url(./assets/images/arrow-right.svg) center/cover no-repeat;
+  @include bgCCN("./assets/images/arrow-right.svg");
 }
 
 /* 商品卡片列表 */
@@ -55,13 +56,49 @@
   }
 }
 
+/* 商品卡片 */
 .product-card {
+  &.in-cart {
+    .card-body {
+      background-color: map-get($color, gray5);
+
+      .content {
+        .start-box {
+          .name-box {
+            .product-id {
+              color: map-get($color, gray2);
+            }
+
+            .product-name {
+              color: map-get($color, light);
+            }
+          }
+        }
+
+        .end-box {
+          .product-size {
+            color: map-get($color, gray2);
+          }
+
+          .product-price {
+            color: map-get($color, light);
+          }
+        }
+      }
+    }
+
+
+
+  }
+
   .card-body {
+    position: relative;
     width: 356px;
     display: flex;
     border-radius: 10px;
     padding: 16px;
     column-gap: 16px;
+    background-color: map-get($color, light);
     @include shadow01;
     transition: .15s ease-out;
     // animation-timing-function: ease-out;
@@ -142,6 +179,18 @@
         }
       }
     }
+
+    .amount-indicator {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 35px;
+      font-weight: 500;
+      line-height: 42.36px;
+      letter-spacing: 0.02em;
+      color: map-get($color, light);
+    }
   }
 
   .inner-menu {
@@ -164,12 +213,22 @@
         width: 22.25px;
         height: 22.25px;
         @include bgCCN("./assets/images/minus-icon.svg");
+        transition: .15s ease-out;
+
+        &:hover {
+          background-image: url(./assets/images/minus-icon-hover.svg);
+        }
       }
 
       .plus-btn {
         width: 22.25px;
         height: 22.25px;
         @include bgCCN("./assets/images/plus-icon.svg");
+        transition: .15s ease-out;
+
+        &:hover {
+          background-image: url(./assets/images/plus-icon-hover.svg);
+        }
       }
 
       .amount {
@@ -205,8 +264,6 @@
 
   &.unfold {
     .card-body {
-      // 為了讓陰影覆蓋在inner-menu上
-      position: relative;
       border-radius: 10px 10px 0 0;
     }
 
@@ -215,4 +272,102 @@
     //   display: flex;
     // }
   }
+}
+
+/* 購物車資訊面板 */
+.products-wrap {
+  .products-cart-borad {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+
+    .amount-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1.05;
+      padding: 17px 15px;
+      background-color: map-get($color, light);
+
+      .title {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.52px;
+      }
+
+      .end-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .cart-icon {
+          width: 19px;
+          height: 19px;
+          @include bgCCN("./assets/images/cart-icon-deep.svg");
+        }
+
+        .amount {
+          transform: translateY(5px);
+
+          .num {
+            font-size: 35px;
+            font-weight: 500;
+            line-height: 42.36px;
+            margin-right: 9px;
+          }
+
+          .unit {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14.52px;
+          }
+        }
+      }
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2px;
+      background-color: map-get($color, light);
+      flex: 1;
+
+      .jpy-box,
+      .ntd-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        flex: 1;
+        background-color: map-get($color, gray1);
+
+        .unit {
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 14.52px;
+        }
+
+        .price {
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 18.15px;
+        }
+      }
+
+      // .ntd-box {
+      //   background-color: map-get($color, gray1);
+      // }
+    }
+
+    .go-cart-page-btn {
+      flex: 1;
+      background-color: map-get($color, gray5);
+      color: map-get($color, light);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+
 }
